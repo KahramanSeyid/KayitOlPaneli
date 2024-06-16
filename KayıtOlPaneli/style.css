@@ -1,0 +1,300 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+::selection {
+  background-color: #f8dd2f;
+  color: black;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  background-color: #212529;
+}
+.form {
+  position: relative;
+  /* hizalama işlemleri yapacağım için  */
+}
+.login,
+.register {
+  padding: 20px;
+  width: 770px;
+  height: 470px;
+  background-color: #fff;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.login {
+  /* Animasyonları js ile ekleyeceğiz burada sadece test etmiş olduk;
+    aşağıdaki @keyframes toLogin ile login sayfam animasyonu verdiğim grup 1 saniyede dönerek yok olsun  */
+  /* animation: toLogin 1s forwards; */
+  /* 1 saniye içinde küçülsün ve forward şeklinde küçülsün */
+  display: flex;
+}
+.form img {
+  display: flex;
+  z-index: 99;
+  /* bunu yapmamın sebebi sağdaki resim ve soldaki içerikler animasyon olunca çarpışmasınlar. */
+  width: 350px;
+  height: 420px;
+}
+.form span,a{
+  cursor: pointer;
+  text-decoration: none;
+  color: #646464;
+}
+.form a:hover{
+  color: #646464;
+}
+.form .right {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px;
+  gap: 5px;
+  /* gap ile elemnteler arası boşluk veriyorum */
+  position: relative;
+}
+.register {
+  display: none;
+  /* kayıt ol ekranı başlangıçta görünmesin js ile click olayıyla görünsün
+    animation: toRegister 1s forwards   ; */
+}
+.form h4 {
+  text-align: center;
+  font-size: 26px;
+  margin-bottom: 25px;
+  color: #646464;
+  letter-spacing: 4px;
+  cursor: context-menu;
+}
+.form input {
+  padding: 12px 15px;
+  background-color: #f4f4f4;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  transition: 300ms all;
+  border: 3px solid transparent;
+}
+.form input:focus {
+  transform: scale(1.03);
+  border: 3px solid #f8dd2f;
+}
+.form .controls {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.social-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  bottom: -50px;
+  left: 0;
+  right: 0;
+}
+.social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #6464641a;
+  cursor: pointer;
+  transform: 300ms all;
+}
+.social i {
+  font-size: 20px;
+  color: #646464;
+}
+.social:hover {
+  transform: scale(1.1);
+}
+.forgot-pass {
+  display: none;
+  width: 840px;
+  height: 350px;
+  background-color: #fff;
+  color: black;
+  z-index: 999;
+  position: absolute;
+  border-radius: 5px;
+  box-shadow: 0 0 30px 10px #646464;
+}
+.forgot-pass h2 {
+  text-align: center;
+  margin-top: 20px;
+}
+.forgot-pass p {
+  font-size: 16px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.forgot-pass input {
+  width: 500px;
+  height: 50px;
+  border: none;
+  /* Border çizgisi; */
+  outline: none;
+  padding: 8px 12px;
+  margin: 0 auto;
+  display: block;
+  margin-top: 50px;
+  background-color: #f4f4f4;
+  border: 3px solid transparent;
+}
+.forgot-pass input:focus {
+  transform: scale(1.03);
+  border: 3px solid #f8dd2f;
+}
+.forgot-pass button {
+  width: 250px;
+  height: 50px;
+  border: none;
+  /* Border çizgisi; */
+  outline: none;
+  padding: 8px 12px;
+  margin: 0 auto;
+  display: block;
+  margin-top: 50px;
+}
+
+.close-btn {
+  margin-top: 0;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  cursor: pointer;
+  font-size: 36px;
+  transition: 500ms all;
+}
+.close-btn:hover {
+  transform: rotate(360deg);
+}
+.overlay {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  z-index: -5;
+  display: none;
+}
+
+/* animasyonlar için */
+@keyframes toLogin {
+  0% {
+    /* başlangıçta boyutu 1 yani kendisi kadar */
+    transform: scale(1) rotate(0);
+  }
+  100% {
+    /* 100 e gelene kadar 0 yani yok olacak 180 derece dönerek yok olacaks */
+    transform: scale(0) rotate(180deg);
+  }
+}
+@keyframes toRegister {
+  0% {
+    /* başlangıçta boyutu 1 yani kendisi kadar */
+    transform: scale(0) rotate(0);
+  }
+  100% {
+    /* 100 e gelene kadar 0 yani yok olacak 180 derece dönerek yok olacaks */
+    transform: scale(1) rotate(360deg);
+  }
+}
+/* Şifremi unuttuma tıklayınca yukarıdan aşağıya tam ortaya gelecek (Görünme Kısmı) */
+@keyframes showPasswordResetPanel {
+  0% {
+    transform: translateY(-500px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+/* x e tıklayınca aşağıdan yukarıya doğru kapanacak; */
+@keyframes hidePasswordResetPanel {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-500px);
+  }
+}
+/*Sayfayı responsive yapma tablet için; minimum 768 px*/
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .login,
+  .register {
+    width: 750px;
+    height: 450px;
+  }
+  .forgot-pass {
+  width: 660px;
+  }
+  .forgot-pass input,
+  .forgot-pass button{
+    width: 500px;
+  }
+  .overlay{
+    width: 100%;
+    height: 100%;
+  }
+}
+@media only screen and (max-width: 767px) {
+    .form img{
+        display: none;
+    }
+    .login,
+    .register{
+        width: 350px;
+        height: 470px;
+    }
+    .forgot-pass{
+     width: 350px;
+    }
+    .forgot-pass input{
+        width: 300px;
+    }
+    .forgot-pass h2{
+        font-size: 20px;
+    }
+    .forgot-pass button{
+        width: 200px;
+    }
+    .overlay{
+        width: 100%;
+        height: 100%;
+      }
+}
+@media only screen and (max-width:320px) {
+    .form img{
+        display: none;
+    }
+    .login,
+    .register{
+        width: 350px;
+        height: 550px;
+    }
+
+    .controls span{
+        font-size: 12px;
+    }
+    .overlay{
+        width: 100%;
+        height: 100%;
+      }
+}
